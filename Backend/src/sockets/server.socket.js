@@ -10,7 +10,7 @@ export async function initSocket(httpServer){
     }
   })
 
-  console.log("Socket.io server is running");
+  console.log("Socket.io server is running")
   
 
   io.on("connection", (socket)=>{
