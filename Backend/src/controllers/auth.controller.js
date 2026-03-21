@@ -124,7 +124,7 @@ export async function loginController(req, res) {
     res.cookie("token", token, {
       httpOnly: true,     // Security ke liye
       secure: true,       // Render (HTTPS) ke liye COMPULSORY hai
-      sameSite: "None",   // 'N' Capital hona chahiye (String format)
+      sameSite: "none",   // 'N' Capital hona chahiye (String format)
       maxAge: 7 * 24 * 60 * 60 * 1000, // 7 din
       path: "/"           // Taaki har route par cookie mile
     });
