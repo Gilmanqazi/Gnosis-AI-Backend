@@ -5,7 +5,7 @@ let io;
 export async function initSocket(httpServer){
   io = new Server(httpServer, {
     cors:{
-      origin:"https://gnosis-ai-by-gilman.onrender.com",
+      origin:"https://gnosis-ai-frontend.vercel.app",
       credentials:true
     }
   })
