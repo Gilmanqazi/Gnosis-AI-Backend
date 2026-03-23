@@ -2,7 +2,7 @@ import userModel from "../models/user.model.js";
 import { sendMail } from "../services/mail.server.js";
 import jwt from "jsonwebtoken";
 
-const BASE_URL = "https://gnosis-ai-frontend.vercel.app";
+const BASE_URL = "https://gnosis-ai-frontend-agys.vercel.app";
 
 // ================= REGISTER =================
 export async function registerContrller(req, res) {
