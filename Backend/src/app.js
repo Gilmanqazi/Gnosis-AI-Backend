@@ -21,7 +21,7 @@ app.use(morgan("dev"));
 // --- 🔒 CORS SETUP ---
 // 'origin' mein apna Vercel wala link daaliye
 app.use(cors({
-    origin: ["https://gnosis-ai-frontend.vercel.app", "http://localhost:5173"], 
+    origin: ["https://gnosis-ai-frontend-agys.vercel.app", "http://localhost:5173"], 
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"]
