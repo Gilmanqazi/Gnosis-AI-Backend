@@ -3,6 +3,7 @@ import { sendMail } from "../services/mail.server.js";
 import jwt from "jsonwebtoken";
 
 const BASE_URL = "https://gnosis-ai-frontend-agys.vercel.app";
+const BASE_URL_BACKEND = "https://gnosis-ai-backend-2.onrender.com"
 
 // ================= REGISTER =================
 export async function registerContrller(req, res) {
@@ -36,7 +37,7 @@ export async function registerContrller(req, res) {
       subject: "Verify Your Email",
       html: `
         <h2>Welcome ${username}</h2>
-        <a href="https://gnosis-ai-backend-2.onrender.com/api/auth/verify-email?token=${token}">
+        <a href="${BASE_URL_BACKEND}/api/auth/verify-email?token=${token}">
           Verify Email
         </a>
       `
