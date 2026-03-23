@@ -1,29 +1,19 @@
 import nodemailer from "nodemailer"
 
 const transporter = nodemailer.createTransport({
-  host: "smtp.gmail.com",
-  port: 587,
-  secure: false, // 587 के लिए false होना चाहिए
-
+service:"gmail",
   auth:{
-    type: 'OAuth2',
-    user:process.env.GOOGLE_USER,
-    clientSecret:process.env.GOOGLE_CLIENT_SECRET,
-    clientId:process.env.GOOGLE_CLIENT_ID,
-    refreshToken:process.env.GOOGLE_REFRESH_TOKEN,
+user:process.env.GOOGLE_USER,
+pass:process.env.GMAIL_APP_PASSWORD
   },
   tls: {
     rejectUnauthorized: false 
   },
-connectionTimeout:10000,
-greatingTimeout:10000,
-
-
 })
 
 transporter.verify()
-.then(()=>{console.log("Email transpoter is ready to send email")})
-.catch((err)=>{console.log("Email transporter verification failed",err)})
+.then(()=>{console.log("Password transpoter is ready to send email")})
+.catch((err)=>{console.log("Password transporter verification failed",err)})
 
 
 export async function sendMail({to,subject,html,text}){
