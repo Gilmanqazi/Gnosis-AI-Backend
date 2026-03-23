@@ -1,7 +1,9 @@
 import nodemailer from "nodemailer"
 
 const transporter = nodemailer.createTransport({
-service:"gmail",
+  host: "smtp.gmail.com",
+  port: 587, // 465 की जगह 587 आज़माएँ, यह अक्सर खुल जाता है
+  secure: false, // 587 के लिए इसे false ही रखना होगा
   auth:{
 user:process.env.GOOGLE_USER,
 pass:process.env.GMAIL_APP_PASSWORD
@@ -9,6 +11,7 @@ pass:process.env.GMAIL_APP_PASSWORD
   tls: {
     rejectUnauthorized: false 
   },
+  connectionTimeout: 40000, // थोड़ा ज्यादा समय दें (40 सेकंड)
 })
 
 transporter.verify()
