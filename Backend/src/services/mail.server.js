@@ -1,7 +1,9 @@
 import nodemailer from "nodemailer"
 
 const transporter = nodemailer.createTransport({
-  service:"gmail",
+  host:"smtp.gmail.com",
+  post:465,
+  secure:true,
   auth:{
     type: 'OAuth2',
     user:process.env.GOOGLE_USER,
@@ -11,7 +13,11 @@ const transporter = nodemailer.createTransport({
   },
   tls: {
     rejectUnauthorized: false 
-  }
+  },
+connectionTimeout:10000,
+greatingTimeout:10000,
+
+
 })
 
 transporter.verify()
@@ -25,7 +31,9 @@ export async function sendMail({to,subject,html,text}){
 to,subject,html,text
   }
 
-  const details = await transporter.sendMail(mailOption)
-  console.log("Email sent:", details);
+  const details = await transporter.sendMail(mailOption);
+  console.log("Email sent successfully:", details.messageId);
+  return details;
+} 
 
-}
+
