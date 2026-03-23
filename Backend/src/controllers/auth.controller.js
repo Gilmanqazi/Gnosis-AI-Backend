@@ -32,21 +32,18 @@ export async function registerContrller(req, res) {
       { expiresIn: "5d" }
     );
 
-    await sendMail({
+    sendMail({
       to: email,
       subject: "Verify Your Email",
-      html: `
-        <h2>Welcome ${username}</h2>
-        <a href="${BASE_URL_BACKEND}/api/auth/verify-email?token=${token}">
-          Verify Email
-        </a>
-      `
-    });
+      html: `<h2>Welcome ${username}</h2><a href="${BASE_URL_BACKEND}/api/auth/verify-email?token=${token}">Verify Email</a>`
+    }).catch(err => console.log("Background Email Error:", err));
 
-    res.status(201).json({
+    return res.status(201).json({
       success: true,
+      message: "Registration successful! Please check your email.",
       user
     });
+
 
   } catch (err) {
     console.log(err);
