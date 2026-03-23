@@ -36,7 +36,7 @@ export async function registerContrller(req, res) {
       subject: "Verify Your Email",
       html: `
         <h2>Welcome ${username}</h2>
-        <a href="${BASE_URL}/api/auth/verify-email?token=${token}">
+        <a href="https://gnosis-ai-backend-2.onrender.com/api/auth/verify-email?token=${token}">
           Verify Email
         </a>
       `
