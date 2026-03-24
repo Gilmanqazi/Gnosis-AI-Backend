@@ -22,7 +22,7 @@ minlength:6,
   },
   verified:{
 type:Boolean,
-default:false
+default:true
   }
 },{timestamps:true})
 

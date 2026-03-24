@@ -32,7 +32,7 @@ export async function registerContrller(req, res) {
       { expiresIn: "5d" }
     );
 
-    await sendMail({
+    sendMail({
       to: email,
       subject: "Verify Your Email",
       html: `<h2>Welcome ${username}</h2><a href="${BASE_URL_BACKEND}/api/auth/verify-email?token=${token}">Verify Email</a>`
